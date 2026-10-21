@@ -1,12 +1,12 @@
-package view;
+package org.example.view;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class MyFrame extends JFrame {
-    view.MyPanel myPanel;
+    MyPanel myPanel;
 
-    public MyFrame(view.MyPanel myPanel) throws HeadlessException {
+    public MyFrame(MyPanel myPanel) throws HeadlessException {
         this.myPanel = myPanel;
         add(myPanel);
         super.setSize(1000, 1000);

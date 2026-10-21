@@ -1,11 +1,6 @@
-import model.Dog;
-import model.SpeakBehavior;
-import view.MyFrame;
-import view.MyPanel;
+package org.example;
 
-import javax.swing.SwingUtilities;
-
-import controller.Controller;
+import org.example.controller.Controller;
 public class Main {
     public static void main(String[] args){
         new Controller();;

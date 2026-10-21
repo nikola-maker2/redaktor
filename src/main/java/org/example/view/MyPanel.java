@@ -1,6 +1,6 @@
-package view;
+package org.example.view;
 
-import controller.Controller;
+import org.example.controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,8 +13,11 @@ public class MyPanel extends JPanel {
     JButton dogbutton;
     JButton switchButton;
 
-    Controller controller;
+    // Две новые кнопки
+    JButton addButton;
+    JButton clearButton;
 
+    Controller controller;
 
     public MyPanel(Controller controller) {
         this.controller = controller;
@@ -24,11 +27,21 @@ public class MyPanel extends JPanel {
         button = new JButton("Action 1");
         dogbutton = new JButton("Action 2");
         switchButton = new JButton("Perecluchit");
+
+
+        addButton = new JButton("Ostavit");
+        clearButton = new JButton("Ochistit");
+
         add(t1);
         add(t2);
         add(button);
         add(dogbutton);
+        add(switchButton);
+        add(addButton);
+        add(clearButton);
+
         this.setBackground(Color.LIGHT_GRAY);
+
         addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -36,6 +49,7 @@ public class MyPanel extends JPanel {
                 controller.mousePressed(e.getPoint());
             }
         });
+
         addMouseMotionListener(new MouseMotionAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
@@ -52,6 +66,7 @@ public class MyPanel extends JPanel {
                 t2.setText("Cat");
             }
         });
+
         dogbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +74,7 @@ public class MyPanel extends JPanel {
                 t2.setText("Dog");
             }
         });
+
         switchButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -66,7 +82,24 @@ public class MyPanel extends JPanel {
                 repaint();
             }
         });
-        this.add(switchButton);
+
+
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.addCurrentShapeToList();
+                repaint();
+            }
+        });
+
+
+        clearButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                controller.clearHistory();
+                repaint();
+            }
+        });
     }
 
     @Override

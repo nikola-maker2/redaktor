@@ -1,6 +1,8 @@
-package model;
+package org.example.model;
 
-public class Cat implements model.SpeakBehavior {
+import org.example.model.SpeakBehavior;
+
+public class Cat implements SpeakBehavior {
     private String name;
 
     public Cat(String Name) {
